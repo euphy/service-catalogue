@@ -1,0 +1,35 @@
+---
+People:
+  - &P-BILLSMITH {name: Bill Smith, location: MBH5, nothing: else}
+  - &P-SUSANALLEN {name: Susan Allen, location: MBH4}
+  - &P-PEDROPATTERSON {name: Pedro Patterson, location: SSN2}
+
+
+Groups:
+  - &G-BANANAS {name: Bananas, purpose: Selling software, href: none, people: [*P-SUSANALLEN, *P-PEDROPATTERSON], hours: "M-F, 9-5"}
+  - &G-APPLES {name: Apples, purpose: Buying ideas, href: none, people: [*P-BILLSMITH, *P-PEDROPATTERSON], hours: "M-F, 9-5"}
+
+Techs:
+  - &T-0001 {name: Mitelv2, license: ASGFDSGF}
+  - &T-0002 {name: PABXv33, license: jrtk455}
+
+Systems:
+  - &SYS-0001 {name: Mitel, tech: *T-0001}
+  - &SYS-0002 {name: Old phones, tech: *T-0002}
+  - &SYS-0003 {name: Emergency kit, tech: *T-0002}
+
+Services:
+  Telephony:
+    {name: Telephony,
+    key: TEL,
+    team: *G-APPLES,
+    href: none,
+    systems: [*SYS-0001, *SYS-0002, *SYS-0003],
+    owner: *P-PEDROPATTERSON}
+  Transport:
+    {name: Transport,
+    key: TRN,
+    team: *G-BANANAS,
+    href: none,
+    systems: [*SYS-0003],
+    owner: *P-BILLSMITH}
